@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Content2 from "@/components/widgets/Content2.astro";
+import aboutImage from "@/assets/images/about-office.webp";
+
+const metadata = {
+  title: "Research - Juliane Möllmann",
+  description:
+    "Explore Juliane Möllmann's research on innovation management, strategy, and corporate-startup collaborations.",
+};
+---
+
+<BaseLayout {metadata}>
+  <Content2
+    title="Research Focus"
+    description={[
+      "My research focuses on organizational and individual practices in the area of innovation management and strategy.",
+      "Key areas include knowledge processes, corporate-startup collaboration, and qualitative methods. I am particularly interested in how organizations can leverage external partnerships to drive innovation.",
+      "My PhD project centered on these themes, examining how knowledge exchange and collaborative strategies can enhance organizational performance and innovation outcomes.",
+    ]}
+    tagline="Academic Research"
+    image={aboutImage}
+    imageAlt="Research and innovation"
+    actions={[
+      {
+        text: "View Publications",
+        href: "https://scholar.google.com/citations?user=Qn9rsNYAAAAJ&hl=de&oi=ao",
+        variant: "primary",
+        icon: "lucide:external-link",
+      },
+      {
+        text: "ResearchGate",
+        href: "https://www.researchgate.net/profile/Juliane-Moellmann-2",
+        variant: "secondary",
+        icon: "lucide:external-link",
+      },
+    ]}
+  />
+</BaseLayout>

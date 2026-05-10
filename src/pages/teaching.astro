@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Content2 from "@/components/widgets/Content2.astro";
+import aboutImage from "@/assets/images/about-office.webp";
+
+const metadata = {
+  title: "Teaching - Juliane Möllmann",
+  description:
+    "Learn about Juliane Möllmann's teaching experience in business studies, innovation management, and strategy.",
+};
+---
+
+<BaseLayout {metadata}>
+  <Content2
+    title="Teaching Experience"
+    description={[
+      "I teach on topics of organizations, innovation management, strategy, entrepreneurship, and technologies in studies focusing on business.",
+      "My teaching covers a range of subjects including organizational behavior, strategic management, innovation processes, and the application of technology in business contexts.",
+      "I aim to provide students with both theoretical knowledge and practical insights drawn from industry experience and current research.",
+    ]}
+    tagline="Academic Teaching"
+    image={aboutImage}
+    imageAlt="Teaching and education"
+    actions={[
+      {
+        text: "Contact for Teaching",
+        href: "/contact",
+        variant: "primary",
+        icon: "lucide:mail",
+      },
+    ]}
+  />
+</BaseLayout>

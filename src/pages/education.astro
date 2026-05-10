@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Content2 from "@/components/widgets/Content2.astro";
+import aboutImage from "@/assets/images/about-office.webp";
+
+const metadata = {
+  title: "Education - Juliane Möllmann",
+  description:
+    "Discover Juliane Möllmann's educational background across multiple countries and institutions.",
+};
+---
+
+<BaseLayout {metadata}>
+  <Content2
+    title="Educational Background"
+    description={[
+      "I conducted my studies in Germany, Denmark, Portugal, UK and USA.",
+      "This international experience has shaped my perspective on global business practices and cross-cultural collaboration in innovation and strategy.",
+      "My academic journey includes degrees in business administration, management, and related fields, with a focus on innovation and organizational studies.",
+    ]}
+    tagline="Education"
+    image={aboutImage}
+    imageAlt="Education and learning"
+    actions={[
+      {
+        text: "View Academic Profile",
+        href: "https://pure.au.dk/portal/en/persons/juliane.moellmann%40btech.au.dk",
+        variant: "primary",
+        icon: "lucide:external-link",
+      },
+    ]}
+  />
+</BaseLayout>

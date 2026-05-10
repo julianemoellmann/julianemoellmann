@@ -6,41 +6,36 @@ import Values from "@/components/widgets/Values.astro";
 import aboutImage from "@/assets/images/about-office.webp";
 
 const metadata = {
-  title: "About us",
+  title: "About Juliane Möllmann",
   description:
-    "Learn more about our vision, values, and the team behind Astro Starter Pro.",
+    "Learn more about Juliane Möllmann, PhD, a Postdoc researcher specializing in innovation management and strategy.",
 };
 
 const values = [
   {
-    title: "Innovation",
+    title: "Knowledge Exchange",
     description:
-      "Curabitur dignissim, felis non sollicitudin molestie, urna mauris pellentesque velit, ut eleifend.",
+      "Facilitating the sharing of knowledge between organizations and individuals to drive innovation.",
   },
   {
-    title: "Commitment",
+    title: "Corporate-Startup Collaborations",
     description:
-      "Aenean condimentum finibus mauris, a fermentum justo pan eget. Sed ultricies, neque quis.",
+      "Exploring partnerships between established companies and startups for mutual growth and innovation.",
   },
   {
-    title: "Quality",
+    title: "Self-strategizing",
     description:
-      "Donec sed orci tincidunt, aliquam nisl a, condimentum nunc. Nulla varius ex nec ante feugiat.",
+      "Developing strategies for personal and organizational self-improvement and adaptation.",
   },
   {
-    title: "Transparency",
+    title: "Artificial Intelligence",
     description:
-      "Phasellus tristique, elit dapibus cursus facilisis, lorem augue fringilla nunc, vitae fermentum.",
+      "Integrating AI technologies into business processes and research methodologies.",
   },
   {
-    title: "Teamwork",
+    title: "Qualitative Methods",
     description:
-      "In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et.",
-  },
-  {
-    title: "Excellence",
-    description:
-      "Fusce at massa nec sapien auctor gravida in in tellus. Vivamus a tristique metus, et molestie.",
+      "Utilizing qualitative research approaches to understand complex organizational phenomena.",
   },
 ];
 
@@ -53,34 +48,36 @@ const optimizedImage = await getImage({
 <BaseLayout {metadata}>
   <link slot="head" rel="preload" href={optimizedImage.src} as="image" />
   <Content2
-    title="Our Vision"
+    title="About Me"
     description={[
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Hej! I am a Postdoc at the Department of Industrial Engineering and Management of Aalto University, School of Science. Before that, I was a senior solution engineer at the Deloitte Innovation Delivery Center in Berlin.",
+      "Within my PhD project, my research focus was on knowledge processes, corporate-startup collaboration, and qualitative methods. I have interests in Knowledge Exchange, Corporate-Startup Collaborations, Self-strategizing, Artificial Intelligence, and Qualitative Methods.",
+      "I teach on topics of organizations, innovation management, strategy, entrepreneurship, and technologies in studies focusing on business. I conducted my studies in Germany, Denmark, Portugal, UK and USA.",
+      "For about ten years, I worked in the industry as innovation manager, scrum master and technical consultant. I also took different community roles in the AOM SAP community, representative associations, and local initiatives.",
     ]}
-    tagline="About"
+    tagline="Biography"
     image={aboutImage}
-    imageAlt="Modern web development office"
+    imageAlt="Juliane Möllmann"
     actions={[
       {
-        text: "Contact Us",
-        href: "/contact",
+        text: "View Research",
+        href: "/research",
         variant: "primary",
-        icon: "lucide:mail",
+        icon: "lucide:book-open",
       },
       {
-        text: "View Details",
-        href: "#",
+        text: "Contact Me",
+        href: "/contact",
         variant: "secondary",
-        icon: "lucide:arrow-right",
+        icon: "lucide:mail",
       },
     ]}
   />
   <Values
     items={values}
     columns={3}
-    tagline="Our Values"
-    title="What Defines Us"
-    subtitle="Principles that guide our daily work"
+    tagline="Interests"
+    title="My Research Interests"
+    subtitle="Areas that drive my academic and professional pursuits"
   />
 </BaseLayout>

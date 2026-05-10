@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Content2 from "@/components/widgets/Content2.astro";
+import aboutImage from "@/assets/images/about-office.webp";
+
+const metadata = {
+  title: "Industry Work - Juliane Möllmann",
+  description:
+    "Explore Juliane Möllmann's professional experience in industry as innovation manager and consultant.",
+};
+---
+
+<BaseLayout {metadata}>
+  <Content2
+    title="Industry Experience"
+    description={[
+      "For about ten years, I worked in the industry as innovation manager, scrum master and technical consultant.",
+      "My roles included managing innovation projects, leading agile development teams as a scrum master, and providing technical consulting services.",
+      "This experience bridges academic research with practical application, informing my teaching and research with real-world insights.",
+    ]}
+    tagline="Professional Experience"
+    image={aboutImage}
+    imageAlt="Industry and professional work"
+    actions={[
+      {
+        text: "View LinkedIn",
+        href: "https://www.linkedin.com/in/julianemoellmann/",
+        variant: "primary",
+        icon: "lucide:external-link",
+      },
+    ]}
+  />
+</BaseLayout>

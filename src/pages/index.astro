@@ -1,134 +1,201 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { siteConfig } from "@/config/site";
-import Hero from "@/components/widgets/Hero.astro";
-import Features from "@/components/widgets/Features.astro";
-import devImg from "@/assets/images/dev_balanced.png";
-import openSourceImg from "@/assets/images/open-source.png";
-import Content2 from "@/components/widgets/Content2.astro";
+
 const metadata = {
-  title: `${siteConfig.name} — The next step for your project`,
+  title: `${siteConfig.name} — Innovation Management and Strategy`,
   description:
-    "A modern and professional template for your web projects with Astro and Tailwind CSS. Boost your development with a solid foundation.",
+    "Personal academic website for Juliane Möllmann, PhD: research, teaching, education, community roles, and industry work.",
   ignoreTitleTemplate: true,
 };
+
+const navItems = [
+  {
+    href: "/research",
+    label: "research",
+    description:
+      "organizational and individual practices in innovation management and strategy",
+  },
+  {
+    href: "/teaching",
+    label: "teaching",
+    description:
+      "organizations, innovation management, strategy, entrepreneurship, and technology",
+  },
+  {
+    href: "/industry-work",
+    label: "industry work",
+    description:
+      "innovation management, scrum mastery, and technical consulting across industry",
+  },
+  {
+    href: "/education",
+    label: "education",
+    description:
+      "academic path through Germany, Denmark, Portugal, the United Kingdom, and the United States",
+  },
+  {
+    href: "/community-roles",
+    label: "community roles",
+    description:
+      "service in AOM SAP, representative associations, and local initiatives",
+  },
+  {
+    href: "/contact",
+    label: "contact",
+    description:
+      "research collaboration, teaching inquiries, and professional correspondence",
+  },
+];
+
+const topics = [
+  "knowledge processes",
+  "corporate-startup collaboration",
+  "qualitative methods",
+  "innovation management",
+  "strategy",
+  "artificial intelligence",
+];
 ---
 
 <BaseLayout {metadata}>
-  <Hero
-    title={`Starter Template for <br class="hidden md:block" /> <span class="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Web Developers</span>`}
-    tagline="Astro v5 + Tailwind v4"
-    description={`${siteConfig.description}`}
-    actions={[
-      {
-        text: "Get Started",
-        href: "https://github.com/devgelo-labs/astro-starter-pro",
-        variant: "primary",
-        icon: "lucide:github",
-      },
-      {
-        text: "Our Services",
-        href: "/services",
-        variant: "secondary",
-        icon: "lucide:arrow-right",
-        ariaLabel: "Learn more about our services",
-      },
-    ]}
-  />
-  <Features
-    tagline="Features"
-    title="What's Included"
-    subtitle="A selection of tools and configurations to streamline your workflow."
-    features={[
-      {
-        title: "Optimized SEO",
-        description:
-          "Base configuration for Meta tags, Open Graph, and Sitemap generation.",
-        icon: "lucide:scan-search",
-        iconClass: "bg-blue-500/10 text-blue-400",
-      },
-      {
-        title: "High Performance",
-        description: "Lightweight structure for fast load times.",
-        icon: "lucide:zap",
-        iconClass: "bg-purple-500/10 text-purple-400",
-      },
-      {
-        title: "Tailwind v4",
-        description:
-          "Integrated configuration with the latest version of Tailwind CSS.",
-        icon: "lucide:palette",
-        iconClass: "bg-pink-500/10 text-pink-400",
-      },
-    ]}
-  />
-  <Content2
-    items={[
-      {
-        title: "Responsive Design",
-        description:
-          "Base configuration for Meta tags, Open Graph, and Sitemap generation.",
-        icon: "lucide:scan-search",
-        iconClass: "bg-blue-500/10 text-blue-400",
-      },
-      {
-        title: "High Performance",
-        description: "Lightweight structure for fast load times.",
-        icon: "lucide:zap",
-        iconClass: "bg-purple-500/10 text-purple-400",
-      },
-      {
-        title: "Tailwind v4",
-        description:
-          "Integrated configuration with the latest version of Tailwind CSS.",
-        icon: "lucide:palette",
-        iconClass: "bg-pink-500/10 text-pink-400",
-      },
-    ]}
-    image={devImg}
-    imageAlt="Development"
+  <section
+    class="mx-auto grid min-h-[calc(100vh-5rem)] max-w-5xl content-between px-5 py-12 sm:px-8 md:py-16"
   >
-    <Fragment>
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Development
-      </h3>
-      We provide a solid foundation to start your projects with best practices.
-    </Fragment>
-  </Content2>
-  <Content2
-    items={[
-      {
-        title: "Open Source",
-        description:
-          "Developed under the MIT license, free for personal and commercial use.",
-        icon: "lucide:github",
-        iconClass: "bg-indigo-500/10 text-indigo-400",
-      },
-      {
-        title: "Community Driven",
-        description:
-          "Built with the feedback and contributions of the developer community.",
-        icon: "lucide:users",
-        iconClass: "bg-orange-500/10 text-orange-400",
-      },
-      {
-        title: "Regular Updates",
-        description:
-          "Continuously improved with the latest technologies and best practices.",
-        icon: "lucide:refresh-cw",
-        iconClass: "bg-teal-500/10 text-teal-400",
-      },
-    ]}
-    image={openSourceImg}
-    imageAlt="Community and Open Source"
-    isReversed={true}
+    <div class="grid gap-12 lg:grid-cols-[1fr_0.72fr] lg:items-start">
+      <div>
+        <p
+          class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+        >
+          postdoctoral researcher
+        </p>
+        <h1
+          class="mt-8 max-w-4xl text-5xl font-normal leading-[0.95] tracking-normal text-foreground sm:text-7xl md:text-8xl"
+        >
+          Juliane<br />Möllmann
+        </h1>
+        <p
+          class="mt-5 font-mono text-sm uppercase tracking-[0.18em] text-muted-foreground"
+        >
+          PhD / innovation management / strategy
+        </p>
+      </div>
+
+      <aside class="border-t border-border pt-5 lg:mt-3">
+        <dl class="space-y-5 text-sm leading-6">
+          <div>
+            <dt
+              class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+            >
+              current
+            </dt>
+            <dd class="mt-1 text-foreground">
+              Department of Industrial Engineering and Management, Aalto
+              University
+            </dd>
+          </div>
+          <div>
+            <dt
+              class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+            >
+              affiliated
+            </dt>
+            <dd class="mt-1 text-foreground">
+              Department of Business Development and Technology, Aarhus BSS
+            </dd>
+          </div>
+          <div>
+            <dt
+              class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+            >
+              before
+            </dt>
+            <dd class="mt-1 text-foreground">
+              Senior solution engineer, Deloitte Innovation Delivery Center
+              Berlin
+            </dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="mt-16 grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-end">
+      <p class="max-w-2xl text-2xl leading-tight text-foreground sm:text-3xl">
+        I study knowledge processes, collaboration, and the organizational work
+        behind innovation.
+      </p>
+
+      <div class="space-y-5">
+        <p class="max-w-xl text-base leading-7 text-muted-foreground">
+          My research focuses on organizational and individual practices in
+          innovation management and strategy, with emphasis on corporate-startup
+          collaboration and qualitative methods.
+        </p>
+        <div
+          class="flex flex-wrap gap-x-3 gap-y-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground"
+        >
+          {
+            topics.map((topic) => (
+              <span class="border border-border px-2 py-1">{topic}</span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-border">
+    <div class="mx-auto max-w-5xl px-5 py-10 sm:px-8">
+      <div class="grid divide-y divide-border">
+        {
+          navItems.map((item, index) => (
+            <a
+              href={item.href}
+              class="group grid gap-3 py-5 transition-colors hover:text-primary lg:grid-cols-[7rem_1fr_1.4fr] lg:items-baseline"
+            >
+              <span class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                {String(index + 1).padStart(3, "0")}
+              </span>
+              <span class="text-2xl leading-none text-foreground group-hover:text-primary">
+                {item.label}
+              </span>
+              <span class="text-sm leading-6 text-muted-foreground">
+                {item.description}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="mx-auto grid max-w-5xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_1fr]"
   >
-    <Fragment>
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Open Source & Community
-      </h3>
-      Join the revolution of modern web development. This project is open for everyone
-      to use, learn from, and contribute to.
-    </Fragment>
-  </Content2>
+    <p
+      class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+    >
+      correspondence
+    </p>
+    <p class="max-w-2xl text-base leading-7 text-muted-foreground">
+      For research collaboration, teaching, or professional exchange, reach me
+      through <a class="text-foreground underline" href="/contact">contact</a>,
+      <a
+        class="text-foreground underline"
+        href={siteConfig.socialLinks.linkedin}
+        target="_blank"
+        rel="noopener noreferrer">LinkedIn</a
+      >, <a
+        class="text-foreground underline"
+        href={siteConfig.socialLinks.googleScholar}
+        target="_blank"
+        rel="noopener noreferrer">Google Scholar</a
+      >, or <a
+        class="text-foreground underline"
+        href={siteConfig.socialLinks.researchgate}
+        target="_blank"
+        rel="noopener noreferrer">ResearchGate</a
+      >.
+    </p>
+  </section>
 </BaseLayout>

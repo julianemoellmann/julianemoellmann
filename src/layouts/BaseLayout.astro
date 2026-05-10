@@ -78,7 +78,7 @@ const finalIgnoreTitleTemplate = metadata?.ignoreTitleTemplate || false;
     </script>
   </head>
   <body
-    class="bg-background text-foreground antialiased selection:bg-blue-500/30 dark:selection:text-blue-200"
+    class="bg-background text-foreground antialiased selection:bg-foreground selection:text-background"
   >
     <a
       href="#main-content"
@@ -88,20 +88,8 @@ const finalIgnoreTitleTemplate = metadata?.ignoreTitleTemplate || false;
     </a>
 
     <div class="relative flex min-h-screen flex-col overflow-x-hidden">
-      <!-- Background Glow -->
-      <div class="pointer-events-none fixed inset-0 z-0 hidden md:block">
-        <div
-          class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.15)_0%,transparent_50%)]"
-        >
-        </div>
-        <div
-          class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.15)_0%,transparent_50%)]"
-        >
-        </div>
-      </div>
-
       <Navbar />
-      <main id="main-content" class="relative z-10 grow pt-[72px]">
+      <main id="main-content" class="relative z-10 grow pt-20">
         <slot />
       </main>
       <Footer />

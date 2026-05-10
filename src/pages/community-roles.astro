@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Content2 from "@/components/widgets/Content2.astro";
+import aboutImage from "@/assets/images/about-office.webp";
+
+const metadata = {
+  title: "Community Roles - Juliane Möllmann",
+  description:
+    "Learn about Juliane Möllmann's involvement in academic and professional communities.",
+};
+---
+
+<BaseLayout {metadata}>
+  <Content2
+    title="Community Involvement"
+    description={[
+      "I took different community roles in the AOM SAP community, representative associations, and local initiatives.",
+      "These roles include participation in the Academy of Management (AOM) SAP interest group, serving on representative boards, and contributing to local innovation and business development initiatives.",
+      "Community engagement is important for sharing knowledge, fostering collaboration, and contributing to the broader academic and professional ecosystem.",
+    ]}
+    tagline="Community Roles"
+    image={aboutImage}
+    imageAlt="Community and collaboration"
+    actions={[
+      {
+        text: "Learn More",
+        href: "/about",
+        variant: "primary",
+        icon: "lucide:arrow-right",
+      },
+    ]}
+  />
+</BaseLayout>
