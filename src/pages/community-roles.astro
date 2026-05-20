@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { sitePath } from "@/utils/paths";
 
 const metadata = {
   title: "Community Roles - Juliane Möllmann",
@@ -91,7 +92,7 @@ const roles = [
     <div>
       <div class="flex items-center gap-5">
         <img
-          src="/icons/community-roles.svg"
+          src={sitePath("/icons/community-roles.svg")}
           alt=""
           aria-hidden="true"
           class="h-12 w-12 shrink-0 sm:h-14 sm:w-14"

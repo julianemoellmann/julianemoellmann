@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { sitePath } from "@/utils/paths";
 
 const metadata = {
   title: "Teaching - Juliane Möllmann",
@@ -220,7 +221,7 @@ const levels = ["Bachelor Level", "Master Level", "PhD Level"];
     <div>
       <div class="flex items-center gap-5">
         <img
-          src="/icons/teaching.svg"
+          src={sitePath("/icons/teaching.svg")}
           alt=""
           aria-hidden="true"
           class="h-12 w-12 shrink-0 sm:h-14 sm:w-14"

@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "@/config/site";
+import { sitePath } from "@/utils/paths";
 
 const year = new Date().getFullYear();
 ---
@@ -15,14 +16,14 @@ const year = new Date().getFullYear();
           <span>&copy; {year}</span>
           <span>/</span>
           <a
-            href="/imprint"
+            href={sitePath("/imprint")}
             class="transition-colors hover:text-foreground"
           >
             Imprint
           </a>
           <span>/</span>
           <a
-            href="/privacy-policy"
+            href={sitePath("/privacy-policy")}
             class="transition-colors hover:text-foreground"
           >
             Privacy Policy

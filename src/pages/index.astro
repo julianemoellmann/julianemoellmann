@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { siteConfig } from "@/config/site";
+import { sitePath } from "@/utils/paths";
 
 const metadata = {
   title: `${siteConfig.name} — Innovation Management and Strategy`,
@@ -123,12 +124,12 @@ const topics = [
         {
           navItems.map((item) => (
             <a
-              href={item.href}
+              href={sitePath(item.href)}
               class="group grid gap-3 py-5 transition-colors hover:text-primary lg:grid-cols-[1fr_1.6fr] lg:items-baseline"
             >
               <span class="flex items-center gap-3 text-2xl leading-none text-foreground group-hover:text-primary">
                 <img
-                  src={item.icon}
+                  src={sitePath(item.icon)}
                   alt=""
                   aria-hidden="true"
                   class="h-6 w-6 shrink-0"

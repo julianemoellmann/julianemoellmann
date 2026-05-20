@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { sitePath } from "@/utils/paths";
 
 const metadata = {
   title: "Education - Juliane Möllmann",
@@ -203,7 +204,7 @@ const training = [
     <div>
       <div class="flex items-center gap-5">
         <img
-          src="/icons/education.svg"
+          src={sitePath("/icons/education.svg")}
           alt=""
           aria-hidden="true"
           class="h-12 w-12 shrink-0 sm:h-14 sm:w-14"
@@ -268,7 +269,7 @@ const training = [
                   </ul>
                   {item.project && (
                     <a
-                      href={item.project.href}
+                      href={sitePath(item.project.href)}
                       class="mt-6 inline-flex font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground underline transition-colors hover:text-foreground"
                     >
                       Related research project: {item.project.label}

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { industryProjects } from "@/data/industryProjects";
+import { sitePath } from "@/utils/paths";
 
 export function getStaticPaths() {
   return industryProjects.map((project) => ({
@@ -22,7 +23,7 @@ const metadata = {
   <section class="mx-auto max-w-5xl px-5 py-12 sm:px-8 md:py-16">
     <div class="grid gap-10 lg:grid-cols-[12rem_1fr]">
       <a
-        href="/industry-work"
+        href={sitePath("/industry-work")}
         class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground underline transition-colors hover:text-foreground"
       >
         Industry Work
@@ -37,7 +38,7 @@ const metadata = {
           {
             projectIcon && (
               <img
-                src={projectIcon}
+                src={sitePath(projectIcon)}
                 alt=""
                 aria-hidden="true"
                 class="h-14 w-14 shrink-0 object-contain opacity-85 sm:h-16 sm:w-16"

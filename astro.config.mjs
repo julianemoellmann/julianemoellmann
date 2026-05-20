@@ -7,6 +7,7 @@ import remarkReadingTime from "remark-reading-time";
 
 export default defineConfig({
   site: "https://julianemoellmann.github.io/julianemoellmann",
+  base: "/julianemoellmann",
   integrations: [sitemap(), icon(), mdx()],
   markdown: {
     remarkPlugins: [

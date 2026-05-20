@@ -6,6 +6,7 @@ import {
   pandaProjects,
   paypalProjects,
 } from "@/data/industryProjects";
+import { sitePath } from "@/utils/paths";
 
 const metadata = {
   title: "Industry Work - Juliane Möllmann",
@@ -220,7 +221,7 @@ const languages = [
     <div>
       <div class="flex items-center gap-5">
         <img
-          src="/icons/industry-work.svg"
+          src={sitePath("/icons/industry-work.svg")}
           alt=""
           aria-hidden="true"
           class="h-12 w-12 shrink-0 sm:h-14 sm:w-14"
@@ -262,7 +263,7 @@ const languages = [
                     </p>
                   </div>
                   <img
-                    src={item.icon}
+                    src={sitePath(item.icon)}
                     alt=""
                     aria-hidden="true"
                     class="h-24 w-24 shrink-0 object-contain opacity-85 sm:mt-1"
@@ -284,7 +285,7 @@ const languages = [
                     <div class="mt-3 grid gap-3">
                       {item.projectPages.map((project) => (
                         <a
-                          href={`/industry-work/projects/${project.slug}`}
+                          href={sitePath(`/industry-work/projects/${project.slug}`)}
                           class="text-sm leading-6 text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-muted-foreground"
                         >
                           {project.title}
@@ -341,7 +342,7 @@ const languages = [
             {
               freelancerExperience.projectPages.map((project) => (
                 <a
-                  href={`/industry-work/projects/${project.slug}`}
+                  href={sitePath(`/industry-work/projects/${project.slug}`)}
                   class="text-sm leading-6 text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-muted-foreground"
                 >
                   {project.title}

@@ -4,6 +4,7 @@ import { getImage } from "astro:assets";
 import Content2 from "@/components/widgets/Content2.astro";
 import Values from "@/components/widgets/Values.astro";
 import aboutImage from "@/assets/images/about-office.webp";
+import { sitePath } from "@/utils/paths";
 
 const metadata = {
   title: "About Juliane Möllmann",
@@ -61,13 +62,13 @@ const optimizedImage = await getImage({
     actions={[
       {
         text: "View Research",
-        href: "/research",
+        href: sitePath("/research"),
         variant: "primary",
         icon: "lucide:book-open",
       },
       {
         text: "Contact Me",
-        href: "/contact",
+        href: sitePath("/contact"),
         variant: "secondary",
         icon: "lucide:mail",
       },

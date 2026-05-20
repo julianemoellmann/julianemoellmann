@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "@/config/site";
+import { sitePath } from "@/utils/paths";
 
 const visibleLinks = siteConfig.navLinks.filter((link) => link.text !== "Home");
 ---
@@ -11,7 +12,7 @@ const visibleLinks = siteConfig.navLinks.filter((link) => link.text !== "Home");
     class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-8"
   >
     <a
-      href="/"
+      href={sitePath("/")}
       class="font-mono text-xs uppercase tracking-[0.22em] text-foreground transition-colors hover:text-primary"
     >
       Juliane Möllmann
@@ -31,7 +32,7 @@ const visibleLinks = siteConfig.navLinks.filter((link) => link.text !== "Home");
                 </span>
               )}
               <a
-                href={link.href}
+                href={sitePath(link.href)}
                 class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.text}
@@ -62,7 +63,7 @@ const visibleLinks = siteConfig.navLinks.filter((link) => link.text !== "Home");
       {
         visibleLinks.map((link) => (
           <a
-            href={link.href}
+            href={sitePath(link.href)}
             class="block py-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
           >
             {link.text}
