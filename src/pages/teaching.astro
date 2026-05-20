@@ -10,6 +10,19 @@ const metadata = {
 
 const teachingItems = [
   {
+    title: "Qualitative Research Methods",
+    href: "https://sisu.aalto.fi/student/courseunit/aalto-CU-1150973017-20240801/brochure",
+    level: "PhD Level, 3-6 ECTS",
+    semester: "Spring 2026",
+    topics: ["Qualitative Research", "Artificial Intelligence"],
+    activities: ["Lectures"],
+    students: "",
+    responsible: "Assistant Professor Natalia Vuori",
+    details: [
+      "Guest Lecture on Generative Artificial Intelligence in Qualitative Research",
+    ],
+  },
+  {
     title: "Engineering Project Management",
     href: "https://kursuskatalog.au.dk/en/course/126415/Engineering-Project-Management",
     level: "Master Level, 10 ECTS",
@@ -214,6 +227,10 @@ const topics = [
 ];
 
 const levels = ["Bachelor Level", "Master Level", "PhD Level"];
+
+const sortedTeachingItems = [...teachingItems].sort((a, b) =>
+  a.title.localeCompare(b.title),
+);
 ---
 
 <BaseLayout {metadata}>
@@ -253,7 +270,7 @@ const levels = ["Bachelor Level", "Master Level", "PhD Level"];
             id="teaching-count"
             class="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-foreground"
           >
-            {teachingItems.length} items
+            {sortedTeachingItems.length} items
           </p>
         </div>
 
@@ -344,7 +361,7 @@ const levels = ["Bachelor Level", "Master Level", "PhD Level"];
         id="teaching-list"
       >
         {
-          teachingItems.map((item) => (
+          sortedTeachingItems.map((item) => (
             <article
               class="teaching-item grid gap-8 border-b border-border py-10 last:border-b-0 lg:grid-cols-[12rem_1fr]"
               data-activities={item.activities.join("|")}
