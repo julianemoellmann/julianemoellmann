@@ -1,33 +1,523 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Content2 from "@/components/widgets/Content2.astro";
-import aboutImage from "@/assets/images/about-office.webp";
 
 const metadata = {
   title: "Teaching - Juliane Möllmann",
   description:
-    "Learn about Juliane Möllmann's teaching experience in business studies, innovation management, and strategy.",
+    "Filterable teaching archive for courses, supervision, examinations, and lectures by Juliane Möllmann.",
 };
+
+const teachingItems = [
+  {
+    title: "Engineering Project Management",
+    href: "https://kursuskatalog.au.dk/en/course/126415/Engineering-Project-Management",
+    level: "Master Level, 10 ECTS",
+    semester: "Spring 2024",
+    topics: ["Organization Theory", "SCRUM"],
+    activities: ["Lectures"],
+    students: "",
+    responsible: "Associate Professor Konstantinos Koumaditis",
+    details: ["Guest Lecture on Anti-Patterns in Scrum"],
+  },
+  {
+    title: "Entrepreneurship & Business Planning",
+    href: "https://kursuskatalog.au.dk/en/course/105999/Entrepreneurship-and-Business-Planning",
+    level: "Bachelor Level, 10 ECTS",
+    semester: "Fall 2021, Fall 2022",
+    topics: ["Entrepreneurship", "Business Plan"],
+    activities: ["Lectures"],
+    students: "40",
+    responsible: "Associate Professor Peter Kesting",
+    details: [
+      "Tutorials with student groups to develop a business plan",
+      "Lecture on corporate-startup-collaboration",
+      "Student Evaluation: 4,13/5 (2021); 4,15/5 (2022)",
+    ],
+  },
+  {
+    title: "Industrial Organization & Strategy",
+    href: "https://kursuskatalog.au.dk/en/course/105911/Industrial-Organisation-and-Strategy",
+    level: "Bachelor Level, 10 ECTS",
+    semester: "Fall 2021, Fall 2022",
+    topics: ["Strategy"],
+    activities: ["Lectures"],
+    students: "150",
+    responsible:
+      "Professor Erik Reimer Larsen (2021), Associate Professor Claus Thrane (2022)",
+    details: [
+      "Tutorials with students on strategy cases",
+      "Student Evaluation: 4,88/5 (2021); 4,30/5 (2022)",
+    ],
+  },
+  {
+    title: "Introduction to Research Methods for Business and Technology",
+    href: "https://btech.medarbejdere.au.dk/en/phd/courses/introduction-to-research-methods-for-business-and-technology",
+    level: "PhD Level",
+    semester: "Fall 2024",
+    topics: ["Qualitative Research"],
+    activities: ["Lectures"],
+    students: "8",
+    responsible: "Associate Professor Konstantinos Koumaditis",
+    details: [
+      "Lecture on Qualitative Research, Data Collection Methods, and Data Analysis",
+    ],
+  },
+  {
+    title: "Leading a Learning Organisation",
+    href: "https://kursuskatalog.au.dk/en/course/113658/Leading-a-Learning-Organisation",
+    level: "Master Level, 10 ECTS",
+    semester: "Fall 2022",
+    topics: ["Knowledge"],
+    activities: ["Examination"],
+    students: "25",
+    responsible: "Assistant Professor Jerry Guo",
+    details: ["Grading small home assignments and oral exam"],
+  },
+  {
+    title: "Managing Innovation",
+    href: "https://kursuskatalog.au.dk/en/course/110382/Managing-Innovation",
+    level: "Master Level, 10 ECTS",
+    semester: "Spring 2022",
+    topics: ["Innovation", "Organization Theory"],
+    activities: ["Examination"],
+    students: "19",
+    responsible: "Grading medium home assignments",
+    details: ["Grading medium home assignments"],
+  },
+  {
+    title: "Managing the Modern Firm: Leadership and Organisation",
+    href: "https://kursuskatalog.au.dk/en/course/106151/Managing-the-Modern-Firm-Leadership-and-Organisation-Elite-Module-in-Digital-Transformation-course-2",
+    level: "Master Level, 10 ECTS",
+    semester: "Fall 2021",
+    topics: ["Organization Theory"],
+    activities: ["Lectures", "Examination"],
+    students: "40",
+    responsible: "Associate Professor Pernille Smith",
+    details: [
+      "Lecture on corporate incubator and corporate accelerator design",
+      "Grading on Project Assignments",
+    ],
+  },
+  {
+    title: "People and Technology in Organizations",
+    href: "https://kursuskatalog.au.dk/en/course/126427/People-and-Technology-in-Organisations",
+    level: "Master Level, 5 ECTS",
+    semester: "Fall 2024",
+    topics: ["Organization Theory", "Strategy", "Technology"],
+    activities: ["Lectures", "Examination"],
+    students: "26",
+    responsible: "Assistant Professor Madalina Pop",
+    details: [
+      "13 lectures of 4 hours on organization and management research",
+      "Interactive workshops with students",
+      "Grading small home assignments and oral exam",
+      "Student evaluation: 4,7/5",
+    ],
+  },
+  {
+    title: "Project-based Internship",
+    href: "https://kursuskatalog.au.dk/en/course/106131/Project-based-Internship",
+    level: "Master Level, 20 ECTS",
+    semester: "Fall 2021",
+    topics: ["Organization Theory", "Strategy"],
+    activities: ["Examination"],
+    students: "7",
+    responsible:
+      "Associate Professor Markus Brunner, Associate Professor Peter Kesting, Assistant Professor Jerry Guo",
+    details: ["Internship Internal Co-Examiner"],
+  },
+  {
+    title: "Qualitative Methods",
+    href: "https://kursuskatalog.au.dk/en/course/113825/Qualitative-Methods",
+    level: "Bachelor Level, 5 ECTS",
+    semester: "Fall 2022",
+    topics: ["Qualitative Research"],
+    activities: ["Supervision"],
+    students: "150",
+    responsible: "Associate Professor Susan Hilbolling",
+    details: ["Supervision of study cafe"],
+  },
+  {
+    title: "Scientific Methods",
+    href: "https://kursuskatalog.au.dk/en/course/106093/Scientific-Methods",
+    level: "10 ECTS, Master Level",
+    semester: "Fall 2021",
+    topics: ["Qualitative Research"],
+    activities: ["Examination"],
+    students: "32",
+    responsible: "Professor Irene Pollach",
+    details: ["Oral Exam Internal Censor"],
+  },
+  {
+    title: "Technological Business Model Innovation",
+    href: "https://kursuskatalog.au.dk/en/course/129615/Technological-Business-Model-Innovation",
+    level: "Master Level, 10 ECTS",
+    semester: "Spring 2025",
+    topics: ["Strategy", "Business Model Innovation"],
+    activities: ["Lectures", "Supervision", "Examination"],
+    students: "130",
+    responsible: "Professor Mirko Presser",
+    details: [
+      "4 lectures ranging from 2 to 6 hours",
+      "Interactive workshops with students",
+      "Supervision of 2 student groups",
+      "Grading group assignment and oral exam",
+      "Student evaluation: 4,4/5",
+    ],
+  },
+  {
+    title: "Technology Specialization Methods",
+    href: "https://kursuskatalog.au.dk/en/course/126425/Technology-Specialisation-1",
+    level: "Master Level, 10 ECTS",
+    semester: "Fall 2024",
+    topics: [
+      "Qualitative Research",
+      "Literature Review",
+      "Artificial Intelligence",
+    ],
+    activities: ["Lectures"],
+    students: "40",
+    responsible: "Associate Professor Konstantinos Koumaditis",
+    details: [
+      "Lectures on Qualitative Research, Literature Review, and Responsible Research & AI",
+    ],
+  },
+  {
+    title:
+      "Use of generative artificial intelligence to develop dynamic capabilities",
+    href: "https://kursuskatalog.au.dk/en/course/122893/Masters-Thesis",
+    level: "Master Level",
+    semester: "Fall 2024",
+    topics: ["Artificial Intelligence", "Strategy"],
+    activities: ["Supervision"],
+    students: "2",
+    responsible: "Associate Professor Torben Tambo",
+    details: ["Master's Thesis supervision"],
+  },
+];
+
+const activities = ["Lectures", "Supervision", "Examination"];
+const topics = [
+  "Artificial Intelligence",
+  "Business Model Innovation",
+  "Business Plan",
+  "Entrepreneurship",
+  "Innovation",
+  "Knowledge",
+  "Literature Review",
+  "Organization Theory",
+  "Qualitative Research",
+  "SCRUM",
+  "Strategy",
+  "Technology",
+];
+
+const levels = ["Bachelor Level", "Master Level", "PhD Level"];
 ---
 
 <BaseLayout {metadata}>
-  <Content2
-    title="Teaching Experience"
-    description={[
-      "I teach on topics of organizations, innovation management, strategy, entrepreneurship, and technologies in studies focusing on business.",
-      "My teaching covers a range of subjects including organizational behavior, strategic management, innovation processes, and the application of technology in business contexts.",
-      "I aim to provide students with both theoretical knowledge and practical insights drawn from industry experience and current research.",
-    ]}
-    tagline="Academic Teaching"
-    image={aboutImage}
-    imageAlt="Teaching and education"
-    actions={[
-      {
-        text: "Contact for Teaching",
-        href: "/contact",
-        variant: "primary",
-        icon: "lucide:mail",
-      },
-    ]}
-  />
+  <section class="mx-auto max-w-5xl px-5 py-12 sm:px-8 md:py-16">
+    <div>
+      <div class="flex items-center gap-5">
+        <img
+          src="/icons/teaching.svg"
+          alt=""
+          aria-hidden="true"
+          class="h-12 w-12 shrink-0 sm:h-14 sm:w-14"
+        />
+        <h1
+          class="max-w-4xl text-5xl font-normal leading-none tracking-normal text-foreground sm:text-7xl"
+        >
+          Teaching
+        </h1>
+      </div>
+      <p class="mt-8 max-w-3xl text-2xl leading-tight text-foreground">
+        I teach and coordinate courses across Bachelor, Master, and PhD levels
+        with a focus on management, innovation, strategy, and digital
+        transformation.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-y border-border">
+    <div class="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <div>
+          <p
+            class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+          >
+            Filters
+          </p>
+          <p
+            id="teaching-count"
+            class="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-foreground"
+          >
+            {teachingItems.length} items
+          </p>
+        </div>
+
+        <form id="teaching-filters" class="space-y-7">
+          <fieldset>
+            <legend
+              class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+            >
+              Activity
+            </legend>
+            <div class="mt-3 flex flex-wrap gap-3">
+              {
+                activities.map((activity) => (
+                  <label class="inline-flex cursor-pointer items-center gap-2 border border-border px-3 py-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
+                    <input
+                      class="h-3 w-3 accent-foreground"
+                      type="checkbox"
+                      name="activity"
+                      value={activity}
+                    />
+                    {activity}
+                  </label>
+                ))
+              }
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend
+              class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+            >
+              Topic
+            </legend>
+            <div class="mt-3 flex flex-wrap gap-2">
+              {
+                topics.map((topic) => (
+                  <button
+                    class="topic-filter border border-border px-2 py-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background"
+                    type="button"
+                    data-topic={topic}
+                    aria-pressed="false"
+                  >
+                    {topic}
+                  </button>
+                ))
+              }
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend
+              class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+            >
+              Level
+            </legend>
+            <div class="mt-3 flex flex-wrap gap-2">
+              {
+                levels.map((level) => (
+                  <button
+                    class="level-filter border border-border px-2 py-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background"
+                    type="button"
+                    data-level={level}
+                    aria-pressed="false"
+                  >
+                    {level.replace(" Level", "")}
+                  </button>
+                ))
+              }
+            </div>
+          </fieldset>
+
+          <button
+            id="clear-teaching-filters"
+            class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground underline transition-colors hover:text-foreground"
+            type="button"
+          >
+            Clear filters
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="mx-auto max-w-5xl px-5 sm:px-8">
+      <div
+        class="grid gap-0 lg:max-h-[72rem] lg:overflow-y-auto lg:pr-2"
+        id="teaching-list"
+      >
+        {
+          teachingItems.map((item) => (
+            <article
+              class="teaching-item grid gap-8 border-b border-border py-10 last:border-b-0 lg:grid-cols-[12rem_1fr]"
+              data-activities={item.activities.join("|")}
+              data-topics={item.topics.join("|")}
+              data-level={item.level}
+            >
+              <div>
+                <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  {item.activities.join(" / ")}
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <h2 class="max-w-3xl text-3xl font-normal leading-tight text-foreground sm:text-4xl">
+                    {item.title}
+                  </h2>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="shrink-0 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground underline transition-colors hover:text-foreground"
+                  >
+                    Course page
+                  </a>
+                </div>
+
+                <div class="mt-6 grid gap-5 md:grid-cols-3">
+                  <div>
+                    <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      Level
+                    </h3>
+                    <p class="mt-2 text-sm leading-6 text-foreground">
+                      {item.level}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      Semester
+                    </h3>
+                    <p class="mt-2 text-sm leading-6 text-foreground">
+                      {item.semester}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      Students
+                    </h3>
+                    <p class="mt-2 text-sm leading-6 text-foreground">
+                      {item.students || "n/a"}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-6 grid gap-5 md:grid-cols-[1fr_1.4fr]">
+                  <div>
+                    <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      Topic
+                    </h3>
+                    <p class="mt-2 text-sm leading-6 text-foreground">
+                      {item.topics.join(" / ")}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      Course responsible
+                    </h3>
+                    <p class="mt-2 text-sm leading-6 text-foreground">
+                      {item.responsible}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-7 border-t border-border pt-5">
+                  <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                    Contribution
+                  </h3>
+                  <ul class="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                    {item.details.map((detail) => (
+                      <li>{detail}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const filterForm = document.getElementById("teaching-filters");
+    const clearButton = document.getElementById("clear-teaching-filters");
+    const countElement = document.getElementById("teaching-count");
+    const items = Array.from(document.querySelectorAll(".teaching-item"));
+    const topicButtons = Array.from(document.querySelectorAll(".topic-filter"));
+    const levelButtons = Array.from(document.querySelectorAll(".level-filter"));
+
+    const getPressedValues = (buttons) =>
+      buttons
+        .filter((button) => button.getAttribute("aria-pressed") === "true")
+        .map((button) => button.dataset.topic || button.dataset.level);
+
+    const getCheckedActivities = () =>
+      Array.from(
+        document.querySelectorAll('input[name="activity"]:checked'),
+      ).map((input) => input.value);
+
+    const itemMatches = (
+      item,
+      selectedActivities,
+      selectedTopics,
+      selectedLevels,
+    ) => {
+      const activities = item.dataset.activities.split("|");
+      const topics = item.dataset.topics.split("|");
+      const level = item.dataset.level;
+
+      const activityMatch =
+        selectedActivities.length === 0 ||
+        selectedActivities.some((activity) => activities.includes(activity));
+      const topicMatch =
+        selectedTopics.length === 0 ||
+        selectedTopics.some((topic) => topics.includes(topic));
+      const levelMatch =
+        selectedLevels.length === 0 ||
+        selectedLevels.some((selectedLevel) => level.includes(selectedLevel));
+
+      return activityMatch && topicMatch && levelMatch;
+    };
+
+    const updateFilters = () => {
+      const selectedActivities = getCheckedActivities();
+      const selectedTopics = getPressedValues(topicButtons);
+      const selectedLevels = getPressedValues(levelButtons);
+      let visibleCount = 0;
+
+      items.forEach((item) => {
+        const isVisible = itemMatches(
+          item,
+          selectedActivities,
+          selectedTopics,
+          selectedLevels,
+        );
+        item.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      if (countElement) {
+        countElement.textContent = `${visibleCount} item${visibleCount === 1 ? "" : "s"}`;
+      }
+    };
+
+    [...topicButtons, ...levelButtons].forEach((button) => {
+      button.addEventListener("click", () => {
+        const isPressed = button.getAttribute("aria-pressed") === "true";
+        button.setAttribute("aria-pressed", String(!isPressed));
+        updateFilters();
+      });
+    });
+
+    filterForm?.addEventListener("change", updateFilters);
+
+    clearButton?.addEventListener("click", () => {
+      filterForm
+        ?.querySelectorAll('input[type="checkbox"]')
+        .forEach((input) => {
+          input.checked = false;
+        });
+      [...topicButtons, ...levelButtons].forEach((button) => {
+        button.setAttribute("aria-pressed", "false");
+      });
+      updateFilters();
+    });
+  </script>
 </BaseLayout>

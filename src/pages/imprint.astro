@@ -1,0 +1,86 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const metadata = {
+  title: "Imprint - Juliane Möllmann",
+  description: "Legal notice and imprint for julianemoellmann.com.",
+};
+
+const legalSections = [
+  {
+    title: "Eingeschränkte Gewähr für Informationen",
+    text: "julianemoellmann.com verwendet die im Verkehr erforderliche Sorgfalt, um die Informationen dieser Website korrekt und auf dem neuesten Stand zu halten. Es können jedoch Irrtümer auftreten oder Informationen fehlen. Anwenderinnen und Anwender sollten die Richtigkeit und Vollständigkeit der Informationen daher prüfen lassen.",
+  },
+  {
+    title: "Hypertext-Verbindungen",
+    text: "julianemoellmann.com ist weder in der Lage noch verpflichtet, alle Websites zu prüfen, die mit dieser Website verbunden sind. Eine Haftung für deren Inhalte ist daher ausgeschlossen. Verbindungen zu anderen Websites werden auf eigene Gefahr genutzt.",
+  },
+  {
+    title: "Übermittelte Inhalte",
+    text: "Die an julianemoellmann.com übermittelten Daten unterliegen im Rahmen der Auftragsabwicklung der elektronischen Datenverarbeitung.",
+  },
+  {
+    title: "Urheberrechte",
+    text: "Alle auf dieser Website erscheinenden Inhalte dürfen zur Informationsgewinnung über julianemoellmann.com und dessen Inhalte genutzt und kopiert beziehungsweise ausgedruckt werden, sofern der Urhebernachweis deutlich sichtbar erscheint. Bei Materialien Dritter müssen die Copyrightzeichen dieser dritten Parteien ebenfalls in allen Kopien erscheinen.",
+  },
+  {
+    title: "Salvatorische Klausel",
+    text: "Sollte eine Bestimmung unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. Die unwirksame Bestimmung ist durch eine Bestimmung zu ersetzen, die dem gewollten Zweck in rechtlich zulässiger Weise am nächsten kommt.",
+  },
+];
+---
+
+<BaseLayout {metadata}>
+  <section class="mx-auto max-w-5xl px-5 py-12 sm:px-8 md:py-16">
+    <div>
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+        Legal Notice
+      </p>
+      <h1
+        class="mt-6 max-w-4xl text-5xl font-normal leading-none tracking-normal text-foreground sm:text-7xl"
+      >
+        Imprint
+      </h1>
+    </div>
+  </section>
+
+  <section class="border-t border-border">
+    <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <p class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+          Responsible
+        </p>
+        <div class="text-base leading-7 text-foreground">
+          <p>Juliane Möllmann</p>
+          <p class="mt-4 text-muted-foreground">
+            Verantwortlich für die Inhalte gemäß § 5 TMG / § 55 II RStV.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border">
+    <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <p class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+          Legal Information
+        </p>
+        <div class="divide-y divide-border">
+          {
+            legalSections.map((section) => (
+              <article class="py-7 first:pt-0">
+                <h2 class="text-2xl font-normal leading-tight text-foreground">
+                  {section.title}
+                </h2>
+                <p class="mt-4 text-sm leading-6 text-muted-foreground">
+                  {section.text}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

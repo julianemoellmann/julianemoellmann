@@ -1,33 +1,430 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Content2 from "@/components/widgets/Content2.astro";
-import aboutImage from "@/assets/images/about-office.webp";
 
 const metadata = {
   title: "Education - Juliane Möllmann",
   description:
-    "Discover Juliane Möllmann's educational background across multiple countries and institutions.",
+    "Academic education, international research experience, service roles, awards, and research training by Juliane Möllmann.",
 };
+
+const degrees = [
+  {
+    degree: "PhD Fellow",
+    period: "2021 - 2024",
+    institution: "Aarhus University",
+    location: "Aarhus, Denmark",
+    details: [
+      "Department of Management, Aarhus BSS",
+      "Research focused on knowledge exchange, corporate-startup collaboration, and qualitative organization research.",
+    ],
+    project: {
+      label: "Corporate-Startup Collaborations",
+      href: "/research#corporate-startup-collaborations",
+    },
+  },
+  {
+    degree:
+      "MSc Economics & Business Administration - Management of Innovation Processes",
+    period: "2016 - 2018",
+    institution: "University of Southern Denmark",
+    location: "Odense, Denmark",
+    details: [
+      "SDU Talent Program",
+      "Erasmus exchange at ISCTE Business School, Lisbon, Portugal, 2017-2018.",
+    ],
+    project: {
+      label: "Governance Mode for Corporate Venturing Activity",
+      href: "/research#governance-mode-for-corporate-venturing-activity",
+    },
+  },
+  {
+    degree:
+      "BA Corporate Management & Economics, Communication & Cultural Management",
+    period: "2008 - 2011",
+    institution: "Zeppelin University",
+    location: "Friedrichshafen, Germany",
+    details: [
+      "Consulting projects on Blue Ocean strategy, open innovation, online communication, and marketing.",
+    ],
+    link: {
+      label: "60sec Zeppelin",
+      href: "https://www.youtube.com/playlist?list=PLantFMqNvOvoXQkRtUJstFRY-q8RIgidK",
+      prefix: "Co-founder of the student project",
+    },
+    project: {
+      label: "Impact of Mobile Commerce",
+      href: "/research#impact-of-mobile-commerce",
+    },
+  },
+];
+
+const researchExperience = [
+  {
+    period: "April - July 2023",
+    institution: "Warwick Business School, University of Warwick",
+    location: "Coventry, UK",
+    detail: "Research stay with Associate Professor",
+    host: {
+      name: "Katharina Dittrich",
+      href: "https://www.wbs.ac.uk/about/person/katharina-dittrich",
+    },
+  },
+  {
+    period: "September - October 2023",
+    institution: "Stern School of Business, New York University",
+    location: "New York, USA",
+    detail: "Research stay with Professor",
+    host: {
+      name: "Natalia Levina",
+      href: "https://www.stern.nyu.edu/faculty/bio/natalia-levina",
+    },
+  },
+];
+
+const serviceRoles = [
+  {
+    period: "2022 - 2023",
+    role: "Representative and Chair, PhD Association at Aarhus BSS (PHABUSS)",
+  },
+  {
+    period: "2022 - 2023",
+    role: "Representative and Vice-Chair, PhD Committee at Aarhus BSS",
+  },
+  {
+    period: "2022 - 2023",
+    role: "Board member, Aarhus University PhD Association (AUPA)",
+  },
+  {
+    period: "2022 - 2023",
+    role: "Member, Academic Council",
+  },
+];
+
+const awards = [
+  {
+    date: "June 2023",
+    title:
+      "Scholarship for research stay abroad at New York University, New York, USA",
+    meta: "Augustinus Fonden, 14,000 DKK",
+  },
+  {
+    date: "May 2023",
+    title:
+      "Scholarship for research stays abroad at Warwick Business School and New York University",
+    meta: "Torben & Alice Frimodts Fond, 20,000 DKK",
+  },
+  {
+    date: "April 2023",
+    title: "Finalist, Three Minute Thesis competition at Aarhus University",
+    meta: 'Presentation: "Making mayonnaise - Collaborations between corporations and startups"',
+  },
+  {
+    date: "March 2023",
+    title: "Scholarship for research stay abroad at Warwick Business School",
+    meta: "Otto Mønsteds Fond, 10,000 DKK",
+  },
+  {
+    date: "February 2023",
+    title:
+      "Scholarship for research stays abroad at Warwick Business School and New York University",
+    meta: "William Demant Fonden, 10,000 DKK",
+  },
+  {
+    date: "June 2022",
+    title: "PhD student of the year 2021-22",
+    meta: "Awarded by the Department of Management, Aarhus BSS",
+  },
+];
+
+const training = [
+  {
+    title: "Process Research Methods",
+    institution: "Amsterdam Business Research Institute",
+    date: "February 2021",
+    faculty: "Hans Berends / Brian Pentland",
+    focus:
+      "Process thinking, process data, and qualitative and quantitative methods for analyzing phenomena that unfold over time.",
+  },
+  {
+    title: "Practice Theory",
+    institution: "Lancaster University",
+    date: "April - May 2022",
+    faculty: "Theodore Schatzki / Elizabeth Shove / Stanley Blue",
+    focus:
+      "Theories of practice, including change, power, time, materiality, connectivity, and methods.",
+  },
+  {
+    title: "Warwick Summer School on Practice and Process Studies",
+    institution: "Warwick Business School",
+    date: "July 2023",
+    faculty: "Omid Omidvar / Davide Nicolini",
+    focus:
+      "Practice, process, and routines studies, with emphasis on body and embodiment.",
+  },
+  {
+    title: "Qualitative Methods Workshop",
+    institution: "NOVA SBE",
+    date: "June - July 2022",
+    faculty:
+      "Beth Bechky / Anne-Laure Fayard / Ruthanne Huising / Hila Lifshitz-Assaf / Melissa Mazmanian",
+    focus:
+      "Qualitative data collection, coding, memo writing, grounded theory, framing, writing, and publishing.",
+  },
+  {
+    title: "Qualitative Research Methods",
+    institution: "Aarhus University",
+    date: "March - May 2021",
+    faculty: "Helle Neergaard / Jakob Lauring / Birte Asmuß",
+    focus:
+      "Research design, qualitative data collection, and analysis of text and talk.",
+  },
+  {
+    title: "Applied Quantitative Methods for Management Research",
+    institution: "Aarhus University",
+    date: "October - November 2021",
+    faculty: "Tünde Cserpes / John Thøgersen",
+    focus:
+      "Regression models, quasi-experimental designs, structural equation models, identification, correlation, and causality.",
+  },
+  {
+    title: "The Research Process and the Role of Theory in Business Research",
+    institution: "Aarhus University",
+    date: "June - September 2021",
+    faculty:
+      "Peter Kesting / John Howell / Lars Frederiksen / Tino Bech-Larsen",
+    focus:
+      "Philosophy of science, theory-building, research questions, method choices, and the practical stages of PhD research.",
+  },
+];
 ---
 
 <BaseLayout {metadata}>
-  <Content2
-    title="Educational Background"
-    description={[
-      "I conducted my studies in Germany, Denmark, Portugal, UK and USA.",
-      "This international experience has shaped my perspective on global business practices and cross-cultural collaboration in innovation and strategy.",
-      "My academic journey includes degrees in business administration, management, and related fields, with a focus on innovation and organizational studies.",
-    ]}
-    tagline="Education"
-    image={aboutImage}
-    imageAlt="Education and learning"
-    actions={[
-      {
-        text: "View Academic Profile",
-        href: "https://pure.au.dk/portal/en/persons/juliane.moellmann%40btech.au.dk",
-        variant: "primary",
-        icon: "lucide:external-link",
-      },
-    ]}
-  />
+  <section class="mx-auto max-w-5xl px-5 py-12 sm:px-8 md:py-16">
+    <div>
+      <div class="flex items-center gap-5">
+        <img
+          src="/icons/education.svg"
+          alt=""
+          aria-hidden="true"
+          class="h-12 w-12 shrink-0 sm:h-14 sm:w-14"
+        />
+        <h1
+          class="max-w-4xl text-5xl font-normal leading-none tracking-normal text-foreground sm:text-7xl"
+        >
+          Education
+        </h1>
+      </div>
+      <p class="mt-8 max-w-3xl text-2xl leading-tight text-foreground">
+        My academic background combines management research, innovation studies,
+        qualitative methods, and international research experience across
+        Germany, Denmark, Portugal, the UK, and the USA.
+      </p>
+    </div>
+  </section>
+
+  <section id="degrees" class="border-t border-border">
+    <div class="mx-auto max-w-5xl px-5 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <div class="py-8">
+          <p
+            class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+          >
+            Degrees
+          </p>
+        </div>
+
+        <div class="divide-y divide-border">
+          {
+            degrees.map((item) => (
+              <article class="grid gap-5 py-8 md:grid-cols-[10rem_1fr]">
+                <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  {item.period}
+                </p>
+                <div>
+                  <h3 class="text-3xl font-normal leading-tight text-foreground">
+                    {item.degree}
+                  </h3>
+                  <p class="mt-3 text-base leading-7 text-muted-foreground">
+                    {item.institution} / {item.location}
+                  </p>
+                  <ul class="mt-5 space-y-2 text-sm leading-6 text-foreground">
+                    {item.details.map((detail) => (
+                      <li>{detail}</li>
+                    ))}
+                    {item.link && (
+                      <li>
+                        {item.link.prefix}{" "}
+                        <a
+                          href={item.link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="underline decoration-border underline-offset-4 transition-colors hover:text-muted-foreground"
+                        >
+                          {item.link.label}
+                        </a>
+                        .
+                      </li>
+                    )}
+                  </ul>
+                  {item.project && (
+                    <a
+                      href={item.project.href}
+                      class="mt-6 inline-flex font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground underline transition-colors hover:text-foreground"
+                    >
+                      Related research project: {item.project.label}
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="international-research-experience">
+    <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <div>
+          <p
+            class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+          >
+            International Research Experience
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          {
+            researchExperience.map((item) => (
+              <article class="border-t border-border pt-5">
+                <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  {item.period}
+                </p>
+                <h3 class="mt-4 text-2xl font-normal leading-tight text-foreground">
+                  {item.institution}
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-muted-foreground">
+                  {item.location}
+                </p>
+                <p class="mt-5 text-sm leading-6 text-foreground">
+                  {item.detail}{" "}
+                  <a
+                    href={item.host.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="underline decoration-border underline-offset-4 transition-colors hover:text-muted-foreground"
+                  >
+                    {item.host.name}
+                  </a>
+                  .
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="academic-service-community-roles">
+    <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <div>
+          <p
+            class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+          >
+            Academic Service
+          </p>
+        </div>
+
+        <div class="grid gap-0 border-t border-border">
+          {
+            serviceRoles.map((item) => (
+              <div class="grid gap-4 border-b border-border py-5 last:border-b-0 sm:grid-cols-[9rem_1fr]">
+                <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  {item.period}
+                </p>
+                <p class="text-sm leading-6 text-foreground">{item.role}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stipends-and-awards">
+    <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <div>
+          <p
+            class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+          >
+            Stipends and Awards
+          </p>
+        </div>
+
+        <div class="divide-y divide-border border-t border-border">
+          {
+            awards.map((item) => (
+              <article class="grid gap-4 py-6 md:grid-cols-[9rem_1fr]">
+                <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  {item.date}
+                </p>
+                <div>
+                  <h3 class="text-xl font-normal leading-snug text-foreground">
+                    {item.title}
+                  </h3>
+                  <p class="mt-2 text-sm leading-6 text-muted-foreground">
+                    {item.meta}
+                  </p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research-training">
+    <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <div>
+          <p
+            class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+          >
+            Research Training
+          </p>
+        </div>
+
+        <div class="grid gap-8">
+          {
+            training.map((item) => (
+              <article class="grid gap-5 border-t border-border pt-7 md:grid-cols-[9rem_1fr]">
+                <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  {item.date}
+                </p>
+                <div>
+                  <h3 class="text-2xl font-normal leading-tight text-foreground">
+                    {item.title}
+                  </h3>
+                  <p class="mt-3 text-sm leading-6 text-muted-foreground">
+                    {item.institution}
+                  </p>
+                  <p class="mt-4 text-sm leading-6 text-foreground">
+                    {item.focus}
+                  </p>
+                  <p class="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                    {item.faculty}
+                  </p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

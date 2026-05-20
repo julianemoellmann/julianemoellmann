@@ -1,39 +1,374 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Content2 from "@/components/widgets/Content2.astro";
-import aboutImage from "@/assets/images/about-office.webp";
 
 const metadata = {
   title: "Research - Juliane Möllmann",
   description:
-    "Explore Juliane Möllmann's research on innovation management, strategy, and corporate-startup collaborations.",
+    "Research projects, publications, conference contributions, dissertation work, book chapters, and invited talks by Juliane Möllmann.",
 };
+
+const topics = [
+  "case studies",
+  "interviews",
+  "observations",
+  "archival data",
+  "literature review",
+  "practice theory",
+  "process theory",
+];
+
+const technicalExperiences = [
+  "microsoft work suite",
+  "endnote",
+  "nvivo",
+  "maxqda",
+  "atlas.ti",
+];
+
+const projects = [
+  {
+    title: "AI in Software Development",
+    status: "active project",
+    source: {
+      label: "AI Strategy Lab",
+      href: "https://aistrategylab.eu/software-development/",
+    },
+    description:
+      "This research project examines how generative artificial intelligence (GenAI) is transforming the software development lifecycle beyond coding into analysis, design, testing, operations, and maintenance. The project focuses on the qualitative organizational challenges emerging as AI becomes embedded in development teams, including changing developer roles, evolving competencies, and new forms of human-AI collaboration. In addition, the research explores organizational risks such as over-reliance on AI systems, uneven applicability across complex technical environments, and the potential erosion of deep technical expertise.",
+    focus: [
+      "GenAI",
+      "software development",
+      "developer work practices",
+      "organizational change",
+    ],
+    methods: [
+      "qualitative case study",
+      "interviews",
+      "observations",
+      "archival data",
+    ],
+    outputs: [
+      {
+        type: "Project page",
+        items: [
+          {
+            text: "AI Strategy Lab. AI in Software Development.",
+            href: "https://aistrategylab.eu/software-development/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Strategic Integration of GenAI in Organizations",
+    status: "active project",
+    source: {
+      label: "STRAI",
+      href: "https://strai-project.github.io./",
+    },
+    description:
+      "Our research project examines the integration of generative artificial intelligence (GenAI) in European organizations. We aim to develop case studies on how companies incorporate GenAI into their processes and practices. By exploring various approaches, we intend to uncover motivations for adoption, implementation challenges, and the impact on efficiency, innovation, and decision-making. By documenting these experiences, our project seeks to provide actionable insights and best practices for organizations leveraging GenAI, ultimately enhancing understanding of their role in driving growth and innovation across Europe.",
+    focus: ["GenAI", "strategy work", "integration", "organizational impact"],
+    methods: ["multiple case study", "interviews", "archival data"],
+    outputs: [
+      {
+        type: "Project page",
+        items: [
+          {
+            text: "STRAI.",
+            href: "https://strai-project.github.io./",
+          },
+        ],
+      },
+      {
+        type: "Conference contribution",
+        items: [
+          {
+            text: "Möllmann, J., Pop, M., Glaser, V., Huysman, M. & Whittington, R. (2025). Strategic Integration of Large Language Models: Challenges, Opportunities, and Organizational Impact. 85th Annual Meeting of the Academy of Management, Copenhagen, DK, July 25-29.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Open Source Software Survivability",
+    status: "active project",
+    description:
+      "Open-source projects are crucial for digital infrastructures but often struggle with long-term survivability. This research examines how projects funded by the NGI Search program assess and manage their endurance beyond initial funding. Survivability is defined as a project's ability to sustain operations and adapt to changes over time. Through interviews with project leads and contributors, we investigate how open-source teams organize their work, create value, and navigate funding strategies. We focus on the alignment between open-source values and sustainability decisions while identifying common challenges and effective strategies to help these initiatives thrive in complex environments.",
+    focus: ["open source", "survivability", "communities", "digital work"],
+    methods: ["multiple case study", "interviews", "archival data"],
+    outputs: [
+      {
+        type: "Dissemination Report",
+        items: [
+          {
+            text: "NGI business model patterns",
+            href: "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/projects-details/43108390/101069364/HORIZON?order=DESC&pageNumber=1&pageSize=10&sortBy=relevance&keywords=NGI%20search&programmePeriod=2021%20-%202027&frameworkProgramme=43108390",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Corporate-Startup Collaborations",
+    id: "corporate-startup-collaborations",
+    status: "doctoral research",
+    description:
+      "Corporations need to innovate continuously to maintain a competitive edge, but many struggle with effective innovation management due to industry changes. To address this, they adopt open innovation, collaborating with startups to combine the startups' agility and innovation with their own established capabilities. They create structured programs to facilitate these collaborations, but these programs often fall short of expectations and are frequently revised or discontinued. This dissertation explores how knowledge exchange in these programs supports successful collaborations between corporations and startups.",
+    focus: [
+      "knowledge exchange",
+      "open innovation",
+      "corporate-startup collaboration",
+      "structured programs",
+    ],
+    methods: [
+      "integrative literature review",
+      "qualitative case study",
+      "interviews",
+      "observations",
+      "archival data",
+    ],
+    outputs: [
+      {
+        type: "Journal article",
+        items: [
+          {
+            text: "Möllmann, J. (2022). More than a handshake - knowledge transfer in structured corporate-startup collaboration programs. Journal of Knowledge Management, 27(10), 2604-2624.",
+          },
+        ],
+      },
+      {
+        type: "Dissertation",
+        items: [
+          {
+            text: "Möllmann, J. (2024). Mind the Gap: Knowledge Exchange between Corporations and Startups in Structured Programs.",
+          },
+        ],
+      },
+      {
+        type: "Conference contributions",
+        items: [
+          {
+            text: "Möllmann, J. & Zaggl, M. (2024). Iterative Problem Development Process in Startup Innovation Contests. 84th Annual Meeting of the Academy of Management, Chicago, USA, August 9-13.",
+          },
+          {
+            text: "Möllmann, J. & Zaggl, M. (2024). Problem Formulation and Piloting Process in Startup Innovation Contest. 24th Annual Conference of the European Academy of Management, Bath, UK, June 25-28.",
+          },
+          {
+            text: "Möllmann, J. & Smith, P. (2023). A Penny for Your Thoughts - Knowledge Processes and Practices in Corporate-Startup Collaborations. 83rd Annual Meeting of the Academy of Management, Boston, USA, August 4-8.",
+          },
+          {
+            text: "Möllmann, J. & Smith, P. (2023). Structuring Knowledge Exchange Processes in Corporate-Startup Collaboration Programs. 39th European Group for Organizational Studies (EGOS) Colloquium, Cagliari, Italy, July 6-8.",
+          },
+        ],
+      },
+      {
+        type: "Invited talks",
+        items: [
+          {
+            text: "ENI Research Seminar, University of Stuttgart, February 2024.",
+          },
+          {
+            text: "IKON Seminar, Warwick Business School, July 2023.",
+          },
+          {
+            text: "ENI Research Seminar, University of Stuttgart, July 2022.",
+          },
+          {
+            text: "The Kitchen Club, Aarhus, February 2022.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Governance Mode for Corporate Venturing Activity",
+    id: "governance-mode-for-corporate-venturing-activity",
+    status: "thesis project",
+    description:
+      "The aim of this thesis was to identify factors influencing corporate decisions regarding governance modes for venturing activities, such as corporate venture capital, joint ventures, spin-offs, and corporate accelerators. This strategic choice impacts organizational structure. A systematic literature review identified and grouped influencing factors into five dimensions: objectives, autonomy, operational linkages, strategic fit, and ambidexterity. Using an exploratory approach with multiple case studies and semi-structured interviews, the relevance of these dimensions was examined. The analysis revealed that strategic fit is the most important dimension, followed by objectives, autonomy, and operational linkages, which were also supported by interview partners.",
+    focus: ["corporate venturing", "governance", "innovation management"],
+    methods: ["systematic literature review", "interviews"],
+    outputs: [
+      {
+        type: "Thesis project",
+        items: [
+          {
+            text: "Governance Mode for Corporate Venturing Activity.",
+          },
+          {
+            text: "Discussion Paper",
+            href: "https://www.researchgate.net/publication/339004174_Discussion_Paper#fullTextFileContent",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Impact of Mobile Commerce",
+    id: "impact-of-mobile-commerce",
+    status: "thesis project",
+    description:
+      "The introduction of the iPhone in 2007 revolutionized the mobile device market with its intuitive usability and extensive mobile internet capabilities, leading to a rapid growth in the market for internet-enabled, touchscreen phones. Today, around 11% of Germans own a smartphone, with 6% using mobile internet intensively and 9% purchasing physical products via their devices. This has significantly impacted mobile commerce, creating new distribution channels and affecting existing ones, such as traditional retail. This thesis aims to explore how mobile commerce influences the distribution structure of electronic commerce, examining theoretical foundations, comparing electronic and traditional commerce, and presenting potential development scenarios based on expert interviews.",
+    focus: ["mobile commerce", "digital business", "strategy"],
+    methods: ["interviews"],
+    outputs: [
+      {
+        type: "Thesis project",
+        items: [
+          {
+            text: "Impact of Mobile Commerce.",
+          },
+        ],
+      },
+    ],
+  },
+];
 ---
 
 <BaseLayout {metadata}>
-  <Content2
-    title="Research Focus"
-    description={[
-      "My research focuses on organizational and individual practices in the area of innovation management and strategy.",
-      "Key areas include knowledge processes, corporate-startup collaboration, and qualitative methods. I am particularly interested in how organizations can leverage external partnerships to drive innovation.",
-      "My PhD project centered on these themes, examining how knowledge exchange and collaborative strategies can enhance organizational performance and innovation outcomes.",
-    ]}
-    tagline="Academic Research"
-    image={aboutImage}
-    imageAlt="Research and innovation"
-    actions={[
+  <section class="mx-auto max-w-5xl px-5 py-12 sm:px-8 md:py-16">
+    <div>
+      <div class="flex items-center gap-5">
+        <img
+          src="/icons/research.svg"
+          alt=""
+          aria-hidden="true"
+          class="h-12 w-12 shrink-0 sm:h-14 sm:w-14"
+        />
+        <h1
+          class="max-w-4xl text-5xl font-normal leading-none tracking-normal text-foreground sm:text-7xl"
+        >
+          Research
+        </h1>
+      </div>
+      <p class="mt-8 max-w-3xl text-2xl leading-tight text-foreground">
+        I study the organizational implications of emerging digital
+        technologies, particularly generative AI, software development,
+        open-source ecosystems, and innovation collaboration. Using qualitative
+        and case-based approaches, I examine how technologies reshape work
+        practices, knowledge exchange, governance structures, and organizational
+        change.
+      </p>
+      <div
+        class="mt-7 flex flex-wrap gap-x-3 gap-y-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground"
+      >
+        {
+          topics.map((topic) => (
+            <span class="border border-border px-2 py-1">{topic}</span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border">
+    <div class="mx-auto max-w-5xl px-5 sm:px-8">
       {
-        text: "View Publications",
-        href: "https://scholar.google.com/citations?user=Qn9rsNYAAAAJ&hl=de&oi=ao",
-        variant: "primary",
-        icon: "lucide:external-link",
-      },
-      {
-        text: "ResearchGate",
-        href: "https://www.researchgate.net/profile/Juliane-Moellmann-2",
-        variant: "secondary",
-        icon: "lucide:external-link",
-      },
-    ]}
-  />
+        projects.map((project) => (
+          <article
+            id={project.id}
+            class="scroll-mt-24 grid gap-8 border-b border-border py-10 last:border-b-0 lg:grid-cols-[12rem_1fr]"
+          >
+            <div>
+              <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                {project.status}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <h2 class="max-w-3xl text-3xl font-normal leading-tight text-foreground sm:text-4xl">
+                  {project.title}
+                </h2>
+                {project.source && (
+                  <a
+                    href={project.source.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="shrink-0 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground underline transition-colors hover:text-foreground"
+                  >
+                    {project.source.label}
+                  </a>
+                )}
+              </div>
+
+              <p class="mt-5 max-w-3xl text-base leading-7 text-muted-foreground">
+                {project.description}
+              </p>
+
+              <div class="mt-7 grid gap-6 md:grid-cols-2">
+                <div>
+                  <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                    Focus
+                  </h3>
+                  <p class="mt-2 text-sm leading-6 text-foreground">
+                    {project.focus.join(" / ")}
+                  </p>
+                </div>
+                <div>
+                  <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                    Methods
+                  </h3>
+                  <p class="mt-2 text-sm leading-6 text-foreground">
+                    {project.methods.join(" / ")}
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-8 border-t border-border pt-6">
+                <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  Related outputs
+                </h3>
+                <div class="mt-5 space-y-7">
+                  {project.outputs.map((group) => (
+                    <section class="grid gap-3 md:grid-cols-[12rem_1fr]">
+                      <h4 class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                        {group.type}
+                      </h4>
+                      <ul class="space-y-3 text-sm leading-6 text-muted-foreground">
+                        {group.items.map((item) => (
+                          <li>
+                            {item.href ? (
+                              <a
+                                href={item.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-foreground underline transition-colors hover:text-primary"
+                              >
+                                {item.text}
+                              </a>
+                            ) : (
+                              item.text
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="border-t border-border">
+    <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+        Technical Experiences
+      </p>
+      <div
+        class="mt-7 flex flex-wrap gap-x-3 gap-y-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground"
+      >
+        {
+          technicalExperiences.map((item) => (
+            <span class="border border-border px-2 py-1">{item}</span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </BaseLayout>

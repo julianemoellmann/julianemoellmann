@@ -1,33 +1,162 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Content2 from "@/components/widgets/Content2.astro";
-import aboutImage from "@/assets/images/about-office.webp";
 
 const metadata = {
   title: "Community Roles - Juliane Möllmann",
   description:
-    "Learn about Juliane Möllmann's involvement in academic and professional communities.",
+    "Academic reviewing, community roles, representative work, and infrastructure contributions by Juliane Möllmann.",
 };
+
+const roles = [
+  {
+    title: "Reviewing",
+    meta: "Ad-hoc reviewer",
+    description:
+      "I contribute to academic communities through reviewing for journals and conferences in innovation, strategy, management, and organization studies.",
+    items: [
+      "Industry and Innovation",
+      "R&D Management",
+      "Journal of Business Strategies",
+      "Academy of Management Annual Meeting",
+      "European Academy of Management Conference",
+    ],
+  },
+  {
+    title: "AOM Interest Group",
+    meta: "Strategizing Activities and Practices",
+    description:
+      "The AOM Strategizing Activities and Practices community focuses on strategy as something people in organizations do in everyday activities. From spring 2022 until mid-2024, I co-organized the virtual coffee sessions with Elisa Lehre. From 2024 on, I support the SAP Mentoring Program with Stefanie Habersang and Sarah Stahnke.",
+    links: [
+      {
+        label: "AOM SAP",
+        href: "https://sap.aom.org/home",
+      },
+      {
+        label: "SAP Mentoring Program",
+        href: "https://sap.aom.org/connecting/sap-mentoring",
+      },
+    ],
+  },
+  {
+    title: "Aarhus Practice and Process Community",
+    meta: "Practice and process research",
+    description:
+      "The practice and process research group at Aarhus University, BSS, connects researchers across the university who are interested in practice and process theory. Alongside regular seminars, the group organizes a yearly symposium at Moesgaard Museum in Aarhus, Denmark. In 2023 and 2024, I supported the event organization for the symposium.",
+  },
+  {
+    title: "Database for CfP Special Issues",
+    meta: "Open-access academic infrastructure",
+    description:
+      "The database of calls for papers for special issues published by academic journals was created as an open-access, community-based resource. It was built in Notion, with a submission form that allows others to add new calls. New entries are shared through a dedicated LinkedIn page and Mastodon. The database has been live since August 2022.",
+    links: [
+      {
+        label: "LinkedIn page",
+        href: "https://www.linkedin.com/company/cfpspecialissue/",
+      },
+    ],
+  },
+  {
+    title: "DANWISE",
+    meta: "Website management",
+    description:
+      "DANWISE is a non-profit organization representing women from academia, industry, and business across STEMM and the humanities. Its work aims to reduce gender gaps by increasing awareness, improving hiring of women in higher academic and industry positions, and supporting policies that improve gender diversity. Since January 2022, I manage the website for the organization.",
+    links: [
+      {
+        label: "DANWISE",
+        href: "https://danwise.org/",
+      },
+    ],
+  },
+  {
+    title: "AUPA & PHABUSS",
+    meta: "Representative work, 2022 - 2023",
+    description:
+      "PHABUSS is the faculty-level PhD association at Aarhus BSS, representing PhD students in bodies across Aarhus University, including the faculty-level PhD committee and the university-wide PhD association, AUPA. Between February 2022 and February 2023, I served as Representative for the Department of Management, Chair of PHABUSS, Vice-Chair in the PhD Committee at Aarhus BSS, and board member of AUPA.",
+    links: [
+      {
+        label: "PHABUSS",
+        href: "https://medarbejdere.au.dk/en/faculties/business-and-social-sciences/phd/phd-association",
+      },
+      {
+        label: "AUPA",
+        href: "https://phd.au.dk/for-current-phd-students/aupa",
+      },
+    ],
+  },
+];
 ---
 
 <BaseLayout {metadata}>
-  <Content2
-    title="Community Involvement"
-    description={[
-      "I took different community roles in the AOM SAP community, representative associations, and local initiatives.",
-      "These roles include participation in the Academy of Management (AOM) SAP interest group, serving on representative boards, and contributing to local innovation and business development initiatives.",
-      "Community engagement is important for sharing knowledge, fostering collaboration, and contributing to the broader academic and professional ecosystem.",
-    ]}
-    tagline="Community Roles"
-    image={aboutImage}
-    imageAlt="Community and collaboration"
-    actions={[
-      {
-        text: "Learn More",
-        href: "/about",
-        variant: "primary",
-        icon: "lucide:arrow-right",
-      },
-    ]}
-  />
+  <section class="mx-auto max-w-5xl px-5 py-12 sm:px-8 md:py-16">
+    <div>
+      <div class="flex items-center gap-5">
+        <img
+          src="/icons/community-roles.svg"
+          alt=""
+          aria-hidden="true"
+          class="h-12 w-12 shrink-0 sm:h-14 sm:w-14"
+        />
+        <h1
+          class="max-w-4xl text-5xl font-normal leading-none tracking-normal text-foreground sm:text-7xl"
+        >
+          Community Roles
+        </h1>
+      </div>
+      <p class="mt-8 max-w-3xl text-2xl leading-tight text-foreground">
+        I contribute to academic and professional communities through reviewing,
+        representative work, research communities, and open infrastructure for
+        scholarly exchange.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-border">
+    <div class="mx-auto max-w-5xl px-5 sm:px-8">
+      <div class="divide-y divide-border">
+        {
+          roles.map((role) => (
+            <article class="grid gap-8 py-10 lg:grid-cols-[12rem_1fr]">
+              <div>
+                <p class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  {role.meta}
+                </p>
+              </div>
+
+              <div>
+                <h2 class="text-3xl font-normal leading-tight text-foreground sm:text-4xl">
+                  {role.title}
+                </h2>
+                <p class="mt-5 max-w-3xl text-base leading-7 text-muted-foreground">
+                  {role.description}
+                </p>
+
+                {role.items && (
+                  <ul class="mt-6 grid gap-3 text-sm leading-6 text-foreground sm:grid-cols-2">
+                    {role.items.map((item) => (
+                      <li class="border-t border-border pt-3">{item}</li>
+                    ))}
+                  </ul>
+                )}
+
+                {role.links && (
+                  <div class="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+                    {role.links.map((link) => (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground underline transition-colors hover:text-foreground"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </BaseLayout>

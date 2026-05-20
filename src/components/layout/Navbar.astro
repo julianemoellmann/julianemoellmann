@@ -18,29 +18,28 @@ const visibleLinks = siteConfig.navLinks.filter((link) => link.text !== "Home");
     </a>
 
     <div class="hidden lg:block">
-      <div class="flex items-baseline gap-5">
+      <div class="flex items-baseline gap-4">
         {
           visibleLinks.map((link, index) => (
-            <a
-              href={link.href}
-              class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {String(index + 1).padStart(3, "0")} {link.text}
-            </a>
+            <>
+              {index > 0 && (
+                <span
+                  class="font-mono text-xs uppercase tracking-[0.14em] text-border"
+                  aria-hidden="true"
+                >
+                  /
+                </span>
+              )}
+              <a
+                href={link.href}
+                class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.text}
+              </a>
+            </>
           ))
         }
       </div>
-    </div>
-
-    <div class="hidden lg:flex items-center gap-4">
-      <a
-        href={siteConfig.socialLinks.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
-      >
-        LinkedIn
-      </a>
     </div>
 
     <div class="flex items-center lg:hidden">
@@ -61,21 +60,15 @@ const visibleLinks = siteConfig.navLinks.filter((link) => link.text !== "Home");
       class="space-y-1 border-b border-border bg-background px-5 pb-5 pt-2 sm:px-8"
     >
       {
-        visibleLinks.map((link, index) => (
+        visibleLinks.map((link) => (
           <a
             href={link.href}
             class="block py-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
           >
-            {String(index + 1).padStart(3, "0")} {link.text}
+            {link.text}
           </a>
         ))
       }
-      <a
-        href={siteConfig.socialLinks.linkedin}
-        target="_blank"
-        class="block py-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
-        >LinkedIn</a
-      >
     </div>
   </div>
 </nav>

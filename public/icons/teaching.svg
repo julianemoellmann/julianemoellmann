@@ -1,0 +1,8 @@
+<svg style="fill:none;stroke:var(--muted-foreground, #68655f);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round" class="icon icon-teaching" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4.75 6.25h14.5v9.5H4.75z"/>
+  <path d="M8 19.25h8"/>
+  <path d="M12 15.75v3.5"/>
+  <path d="M8.25 10.25h3"/>
+  <path d="M8.25 12.75h5.5"/>
+  <path d="M15.75 9.25l2 2-2 2"/>
+</svg>

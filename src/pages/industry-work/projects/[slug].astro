@@ -1,0 +1,109 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { industryProjects } from "@/data/industryProjects";
+
+export function getStaticPaths() {
+  return industryProjects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const projectIcon = "icon" in project ? project.icon : undefined;
+
+const metadata = {
+  title: `${project.title} - Industry Project - Juliane Möllmann`,
+  description: project.description,
+};
+---
+
+<BaseLayout {metadata}>
+  <section class="mx-auto max-w-5xl px-5 py-12 sm:px-8 md:py-16">
+    <div class="grid gap-10 lg:grid-cols-[12rem_1fr]">
+      <a
+        href="/industry-work"
+        class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground underline transition-colors hover:text-foreground"
+      >
+        Industry Work
+      </a>
+      <div>
+        <p
+          class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+        >
+          {project.period} / {project.employer}
+        </p>
+        <div class="mt-6 flex items-center gap-5">
+          {
+            projectIcon && (
+              <img
+                src={projectIcon}
+                alt=""
+                aria-hidden="true"
+                class="h-14 w-14 shrink-0 object-contain opacity-85 sm:h-16 sm:w-16"
+              />
+            )
+          }
+          <h1
+            class="max-w-4xl text-5xl font-normal leading-none tracking-normal text-foreground sm:text-7xl"
+          >
+            {project.title}
+          </h1>
+        </div>
+        <p class="mt-8 max-w-3xl text-2xl leading-tight text-foreground">
+          {project.company}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-border">
+    <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <p
+          class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+        >
+          Project
+        </p>
+        <div>
+          <p class="max-w-3xl text-base leading-7 text-muted-foreground">
+            {project.description}
+          </p>
+
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            <div>
+              <h2
+                class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+              >
+                Industry
+              </h2>
+              <p class="mt-2 text-sm leading-6 text-foreground">
+                {project.industry}
+              </p>
+            </div>
+            <div>
+              <h2
+                class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+              >
+                Role
+              </h2>
+              <p class="mt-2 text-sm leading-6 text-foreground">
+                {project.role}
+              </p>
+            </div>
+            <div>
+              <h2
+                class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground"
+              >
+                Language
+              </h2>
+              <p class="mt-2 text-sm leading-6 text-foreground">
+                {project.languages.join(" / ")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
