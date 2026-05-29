@@ -6,8 +6,8 @@ import icon from "astro-icon";
 import remarkReadingTime from "remark-reading-time";
 
 export default defineConfig({
-  site: "https://julianemoellmann.github.io/julianemoellmann",
-  base: "/julianemoellmann",
+  site: "https://www.julianemoellmann.com",
+  base: "/",
   integrations: [sitemap(), icon(), mdx()],
   markdown: {
     remarkPlugins: [

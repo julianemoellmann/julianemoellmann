@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Juliane Möllmann, PhD",
   description:
     "Postdoc researcher specializing in innovation management, strategy, corporate-startup collaborations, and qualitative methods.",
-  url: "https://julianemoellmann.github.io/julianemoellmann",
+  url: "https://www.julianemoellmann.com",
   lang: "en",
   locale: "en_US",
   author: "Juliane Möllmann",
