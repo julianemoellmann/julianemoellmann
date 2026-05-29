@@ -103,6 +103,11 @@ const serviceRoles = [
 
 const awards = [
   {
+    date: "August 2023 / 2024 / 2025",
+    title: "Outstanding Contributions to the SAP Community Award",
+    meta: "Academy of Management, Strategizing Activities & Practices Interest Group",
+  },
+  {
     date: "June 2023",
     title:
       "Scholarship for research stay abroad at New York University, New York, USA",
@@ -118,6 +123,10 @@ const awards = [
     date: "April 2023",
     title: "Finalist, Three Minute Thesis competition at Aarhus University",
     meta: 'Presentation: "Making mayonnaise - Collaborations between corporations and startups"',
+    link: {
+      label: "Watch presentation",
+      href: "https://www.youtube.com/watch?v=gjkIvjH_0qQ",
+    },
   },
   {
     date: "March 2023",
@@ -380,6 +389,16 @@ const training = [
                   <p class="mt-2 text-sm leading-6 text-muted-foreground">
                     {item.meta}
                   </p>
+                  {item.link && (
+                    <a
+                      href={item.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="mt-3 inline-flex font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground underline transition-colors hover:text-foreground"
+                    >
+                      {item.link.label}
+                    </a>
+                  )}
                 </div>
               </article>
             ))

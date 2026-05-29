@@ -51,8 +51,12 @@ const roles = [
       "The database of calls for papers for special issues published by academic journals was created as an open-access, community-based resource. It was built in Notion, with a submission form that allows others to add new calls. New entries are shared through a dedicated LinkedIn page and Mastodon. The database has been live since August 2022.",
     links: [
       {
+        label: "Database",
+        href: "https://specialissues.notion.site/specialissues/Call-for-Papers-for-Special-Issues-cfa335597a78418c918b9f28310ecada",
+      },
+      {
         label: "LinkedIn page",
-        href: "https://www.linkedin.com/company/cfpspecialissue/",
+        href: "https://www.linkedin.com/company/cfpspecialissue",
       },
     ],
   },
@@ -85,6 +89,28 @@ const roles = [
     ],
   },
 ];
+
+const memberships = [
+  {
+    period: "2026",
+    title: "Member, Strategic Management Society",
+    details: "Strategy Practice IG, Strategy Process IG",
+  },
+  {
+    period: "2022 - present",
+    title: "Member, Academy of Management",
+    details: "SAP interest group",
+  },
+  {
+    period: "2022, 2024",
+    title: "Member, European Academy of Management",
+    details: "SIG Innovation",
+  },
+  {
+    period: "2023",
+    title: "Member, European Group for Organizational Studies",
+  },
+];
 ---
 
 <BaseLayout {metadata}>
@@ -104,9 +130,9 @@ const roles = [
         </h1>
       </div>
       <p class="mt-8 max-w-3xl text-2xl leading-tight text-foreground">
-        I contribute to academic and professional communities through reviewing,
-        representative work, research communities, and open infrastructure for
-        scholarly exchange.
+        I contribute to academic and professional communities by reviewing,
+        serving in representative and supportive roles in research communities,
+        and creating an open-access infrastructure for academics.
       </p>
     </div>
   </section>
@@ -157,6 +183,40 @@ const roles = [
             </article>
           ))
         }
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border">
+    <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+        <p
+          class="pt-7 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+        >
+          Memberships
+        </p>
+
+        <div class="divide-y divide-border">
+          {
+            memberships.map((membership) => (
+              <article class="grid gap-5 py-7 md:grid-cols-[9rem_1fr]">
+                <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  {membership.period}
+                </p>
+                <div>
+                  <h2 class="text-2xl font-normal leading-tight text-foreground">
+                    {membership.title}
+                  </h2>
+                  {membership.details && (
+                    <p class="mt-2 text-sm leading-6 text-muted-foreground">
+                      {membership.details}
+                    </p>
+                  )}
+                </div>
+              </article>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
