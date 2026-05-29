@@ -56,6 +56,11 @@ const topics = [
   "corporate-startup collaboration",
   "qualitative methods",
 ];
+
+const publications = [
+  "Renzl, B., & Möllmann, J. (2025). Ambidexterity. In B. Grossmann-Hensel, P. Jarzabkowski, R. Kratochvil, D. Seidl, P. Spee, & R. Whittington (Eds.), Elgar Encyclopedia of Strategy as Practice (pp. 121-124). Edward Elgar Publishing.",
+  "Möllmann, J. (2023). More than a handshake - knowledge transfer in structured corporate-startup collaboration programs. Journal of Knowledge Management, 27(10), 2604-2624.",
+];
 ---
 
 <BaseLayout {metadata}>
@@ -116,7 +121,7 @@ const topics = [
     </div>
   </section>
 
-  <section class="border-y border-border">
+  <section class="border-t border-border">
     <div class="mx-auto max-w-5xl px-5 py-10 sm:px-8">
       <div class="grid divide-y divide-border">
         {
@@ -145,20 +150,42 @@ const topics = [
     </div>
   </section>
 
-  <section
-    class="mx-auto grid max-w-5xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[0.55fr_1fr]"
-  >
-    <p
-      class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+  <section class="border-t border-border">
+    <div
+      class="mx-auto grid max-w-5xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[0.55fr_1fr]"
     >
-      contact
-    </p>
-    <form
-      action="mailto:juliane.moellmann@aalto.fi"
-      method="post"
-      enctype="text/plain"
-      class="grid gap-5"
+      <p
+        class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+      >
+        publications
+      </p>
+      <div class="divide-y divide-border">
+        {
+          publications.map((publication) => (
+            <p class="py-6 text-sm leading-7 text-foreground first:pt-0">
+              {publication}
+            </p>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border">
+    <div
+      class="mx-auto grid max-w-5xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[0.55fr_1fr]"
     >
+      <p
+        class="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground"
+      >
+        contact
+      </p>
+      <form
+        action="mailto:juliane.moellmann@aalto.fi"
+        method="post"
+        enctype="text/plain"
+        class="grid gap-5"
+      >
       <div class="grid gap-2">
         <label
           for="contact-name"
@@ -220,6 +247,7 @@ const topics = [
           send message
         </button>
       </div>
-    </form>
+      </form>
+    </div>
   </section>
 </BaseLayout>

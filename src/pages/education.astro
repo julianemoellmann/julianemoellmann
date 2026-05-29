@@ -10,14 +10,20 @@ const metadata = {
 
 const degrees = [
   {
-    degree: "PhD Fellow",
+    degree: "PhD, Management",
     period: "2021 - 2024",
     institution: "Aarhus University",
     location: "Aarhus, Denmark",
     details: [
       "Department of Management, Aarhus BSS",
       "Research focused on knowledge exchange, corporate-startup collaboration, and qualitative organization research.",
+      "Supervisors: Pernille Smith, Michael Zaggl",
+      "Assessment Committee: Franziska Günzel-Jensen (Aarhus University), Paul Carlile (Boston University), Raj Shankar (Great Lakes Institute of Management)",
     ],
+    link: {
+      label: "PhD Dissertation",
+      href: "https://pure.au.dk/portal/en/publications/mind-the-gap/",
+    },
     project: {
       label: "Corporate-Startup Collaborations",
       href: "/research#corporate-startup-collaborations",
@@ -25,13 +31,14 @@ const degrees = [
   },
   {
     degree:
-      "MSc Economics & Business Administration - Management of Innovation Processes",
+      "MSc Economics & Business Administration, Management of Innovation Processes",
     period: "2016 - 2018",
     institution: "University of Southern Denmark",
     location: "Odense, Denmark",
     details: [
       "SDU Talent Program",
       "Erasmus exchange at ISCTE Business School, Lisbon, Portugal, 2017-2018.",
+      "Supervisor: Markus Becker",
     ],
     project: {
       label: "Governance Mode for Corporate Venturing Activity",
@@ -46,6 +53,7 @@ const degrees = [
     location: "Friedrichshafen, Germany",
     details: [
       "Consulting projects on Blue Ocean strategy, open innovation, online communication, and marketing.",
+      "Supervisor: Christian Brock",
     ],
     link: {
       label: "60sec Zeppelin",
@@ -67,7 +75,6 @@ const researchExperience = [
     detail: "Research stay with Associate Professor",
     host: {
       name: "Katharina Dittrich",
-      href: "https://www.wbs.ac.uk/about/person/katharina-dittrich",
     },
   },
   {
@@ -77,7 +84,6 @@ const researchExperience = [
     detail: "Research stay with Professor",
     host: {
       name: "Natalia Levina",
-      href: "https://www.stern.nyu.edu/faculty/bio/natalia-levina",
     },
   },
 ];
@@ -154,14 +160,6 @@ const training = [
     faculty: "Hans Berends / Brian Pentland",
     focus:
       "Process thinking, process data, and qualitative and quantitative methods for analyzing phenomena that unfold over time.",
-  },
-  {
-    title: "Practice Theory",
-    institution: "Lancaster University",
-    date: "April - May 2022",
-    faculty: "Theodore Schatzki / Elizabeth Shove / Stanley Blue",
-    focus:
-      "Theories of practice, including change, power, time, materiality, connectivity, and methods.",
   },
   {
     title: "Warwick Summer School on Practice and Process Studies",
@@ -318,16 +316,7 @@ const training = [
                   {item.location}
                 </p>
                 <p class="mt-5 text-sm leading-6 text-foreground">
-                  {item.detail}{" "}
-                  <a
-                    href={item.host.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="underline decoration-border underline-offset-4 transition-colors hover:text-muted-foreground"
-                  >
-                    {item.host.name}
-                  </a>
-                  .
+                  {item.detail} {item.host.name}.
                 </p>
               </article>
             ))
