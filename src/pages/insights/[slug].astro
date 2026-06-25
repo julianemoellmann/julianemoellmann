@@ -1,0 +1,78 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Schema from "@/components/seo/Schema.astro";
+import { getCollection, render } from "astro:content";
+import { sitePath } from "@/utils/paths";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles
+    .filter((article) => !article.data.draft)
+    .map((article) => ({
+      params: { slug: article.id },
+      props: { article },
+    }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const { title, description, pubDate, author, tags } = article.data;
+
+const formattedDate = pubDate.toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+const metadata = {
+  title: `${title} - Insights`,
+  description,
+};
+---
+
+<BaseLayout {metadata}>
+  <Schema
+    type="BlogPosting"
+    data={{
+      title,
+      description,
+      pubDate,
+      author,
+      url: Astro.url.href,
+    }}
+  />
+
+  <article class="mx-auto max-w-5xl px-5 py-12 sm:px-8 md:py-16">
+    <a
+      href={sitePath("/insights")}
+      class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground underline transition-colors hover:text-foreground"
+    >
+      Insights
+    </a>
+
+    <header class="mt-10 max-w-4xl">
+      <p class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+        {formattedDate} / {author}
+      </p>
+      <h1
+        class="mt-6 text-5xl font-normal leading-none tracking-normal text-foreground sm:text-7xl"
+      >
+        {title}
+      </h1>
+      <p class="mt-8 max-w-3xl text-2xl leading-tight text-foreground">
+        {description}
+      </p>
+      {tags && tags.length > 0 && (
+        <div class="mt-7 flex flex-wrap gap-x-3 gap-y-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+          {tags.map((tag) => <span class="border border-border px-2 py-1">{tag}</span>)}
+        </div>
+      )}
+    </header>
+
+    <div
+      class="prose prose-neutral mt-12 max-w-3xl border-t border-border pt-8 text-foreground prose-headings:font-normal prose-headings:tracking-normal prose-headings:text-foreground prose-p:text-muted-foreground prose-p:leading-7 prose-a:text-foreground prose-a:underline prose-a:decoration-border prose-a:underline-offset-4 prose-strong:text-foreground prose-li:text-muted-foreground"
+    >
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

@@ -21,6 +21,7 @@ export const siteConfig = {
     { text: "Research", href: "/research" },
     { text: "Teaching", href: "/teaching" },
     { text: "Education", href: "/education" },
+    { text: "Insights", href: "/insights" },
     { text: "Community Roles", href: "/community-roles" },
     { text: "Industry Work", href: "/industry-work" },
   ],

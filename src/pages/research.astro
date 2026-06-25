@@ -99,6 +99,12 @@ const projects = [
         ],
       },
     ],
+    funding: [
+      {
+        date: "June 2026",
+        text: "Travel stipend, Markus Wallenberg Foundation, 1.500 EUR",
+      },
+    ],
   },
   {
     title: "Open Source Software Survivability",
@@ -199,6 +205,24 @@ const projects = [
             text: "Warwick Summer School on Practice and Process Studies, Warwick Business School, July 2023.",
           },
         ],
+      },
+    ],
+    funding: [
+      {
+        date: "June 2023",
+        text: "Scholarship for Research Stay Abroad, Augustinus Fonden, 14,000 DKK",
+      },
+      {
+        date: "May 2023",
+        text: "Scholarship for Research Stay Abroad, Torben & Alice Frimodts Fond, 20,000 DKK",
+      },
+      {
+        date: "March 2023",
+        text: "Scholarship for Research Stay Abroad, Otto Mønsteds Fond, 10,000 DKK",
+      },
+      {
+        date: "February 2023",
+        text: "Scholarship for Research Stay Abroad, William Demant Fonden, 10,000 DKK",
       },
     ],
   },
@@ -369,6 +393,26 @@ const projects = [
                   ))}
                 </div>
               </div>
+
+              {project.funding && (
+                <div class="mt-8 border-t border-border pt-6">
+                  <h3 class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                    Related funding
+                  </h3>
+                  <div class="mt-5 space-y-4">
+                    {project.funding.map((item) => (
+                      <section class="grid gap-3 md:grid-cols-[12rem_1fr]">
+                        <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                          {item.date}
+                        </p>
+                        <p class="text-sm leading-6 text-muted-foreground">
+                          {item.text}
+                        </p>
+                      </section>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </article>
         ))
