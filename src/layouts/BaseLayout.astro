@@ -149,5 +149,27 @@ const finalIgnoreTitleTemplate = metadata?.ignoreTitleTemplate || false;
       document.addEventListener("astro:page-load", setupAnimations);
       document.addEventListener("astro:after-swap", setupAnimations);
     </script>
+    <script>
+      const scrollToHashTarget = () => {
+        if (!window.location.hash) return;
+
+        const targetId = decodeURIComponent(window.location.hash.slice(1));
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        target.scrollIntoView({ block: "start", behavior: "auto" });
+      };
+
+      const queueHashScroll = () => {
+        scrollToHashTarget();
+        window.setTimeout(scrollToHashTarget, 100);
+        window.setTimeout(scrollToHashTarget, 350);
+      };
+
+      window.addEventListener("load", queueHashScroll);
+      window.addEventListener("hashchange", scrollToHashTarget);
+      document.addEventListener("astro:page-load", queueHashScroll);
+      document.addEventListener("astro:after-swap", queueHashScroll);
+    </script>
   </body>
 </html>
